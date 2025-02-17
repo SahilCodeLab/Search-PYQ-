@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Previous Year Question Papers</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            background: url('https://i.pinimg.com/736x/d5/cd/6b/d5cd6b53f38564e6cae6474627c8022e.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            flex-direction: column;
+        }
+
+        /* Fog Effect */
+        .fog {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.4);  /* Fog color */
+            animation: fogAnimation 10s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes fogAnimation {
+            0% { opacity: 0.4; }
+            50% { opacity: 0.7; }
+            100% { opacity: 0.4; }
+        }
+
+        /* Frosted Glass Effect */
+        #searchForm {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 90vw; /* Responsive width */
+            backdrop-filter: blur(10px);  /* Glass effect */
+            -webkit-backdrop-filter: blur(10px); /* For Safari */
+        }
+
+        #searchForm h1 {
+            text-align: center;
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #searchFormElement {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #exam {
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        #exam:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        button {
+            padding: 0.8rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer Style */
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-size: 1rem;
+            z-index: 2;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #searchForm {
+                max-width: 80vw;
+            }
+
+            #searchForm h1 {
+                font-size: 1.2rem;
+            }
+
+            #exam, button {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #searchForm {
+                max-width: 70vw;
+            }
+
+            #searchForm h1 {
+                font-size: 1rem;
+            }
+
+            #exam, button {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fog"></div> <!-- Fog Overlay -->
+    <div id="searchForm">
+        <h1>Search Previous Year Question Papers (~Sahil)</h1>
+        <form id="searchFormElement">
+            <input type="text" id="exam" name="exam" placeholder="Enter Exam Name" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('searchFormElement').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var examName = document.getElementById('exam').value;
+            var query = encodeURIComponent(examName + ' previous year question paper filetype:pdf');
+            var url = 'https://www.google.com/search?q=' + query;
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>
