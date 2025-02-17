@@ -170,3 +170,42 @@
     </script>
 </body>
 </html>
+
+
+
+
+    <!-- Move Preloader Here -->
+    <div id="preloader"></div>
+    <style>
+  /* Preloader By Default Visible Rahe */
+#preloader {
+    background: url("https://i.imgur.com/do6zqLR.gif") no-repeat center;
+    background-size: 20%;
+    background-color: #fff;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Content Ko Initially Hide Rakho */
+#main-content {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+</style>
+<script>
+    window.addEventListener("load", function () {
+        var preloader = document.getElementById("preloader");
+        var mainContent = document.getElementById("main-content");
+
+        // Ensure Preloader Hides Properly
+        setTimeout(function () {
+            preloader.style.display = "none";
+            mainContent.style.opacity = "1";
+        }, 7000); // 3 sec ke andar forcefully hata dega
+    });
+</script>
